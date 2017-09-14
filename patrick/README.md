@@ -151,104 +151,35 @@ remote: Compressing objects: 100% (27/27), done.
 remote: Total 75 (delta 19), reused 28 (delta 11), pack-reused 36
 Unpacking objects: 100% (75/75), done.
 mrpatrickdaykennedy@blissful-acumen-179906:~$ cd DevOps-Deployment/
-mrpatrickdaykennedy@blissful-acumen-179906:~/DevOps-Deployment$ cd patrick/backend/
+mrpatrickdaykennedy@blissful-acumen-179906:~/DevOps-Deployment$ cd patrick/frontend
+mrpatrickdaykennedy@blissful-acumen-179906:~/DevOps-Deployment/patrick/frontend$ npm install
+npm WARN prefer global node-gyp@3.6.2 should be installed with -g
+> node-sass@4.5.3 install /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend/node_modules/node-sass
+> node scripts/install.js
+Downloading binary from https://github.com/sass/node-sass/releases/download/v4.5.3/linux-x64-48_binding.node
+Download complete .] - :
+Binary saved to /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend/node_modules/node-sass/vendor/linux-x64-48/binding.node
+Caching binary to /home/mrpatrickdaykennedy/.npm/node-sass/4.5.3/linux-x64-48_binding.node
+> uglifyjs-webpack-plugin@0.4.6 postinstall /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend/node_modules/uglifyjs-webpack-plugin
+> node lib/post_install.js
+> node-sass@4.5.3 postinstall /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend/node_modules/node-sass
+> node scripts/build.js
+Binary found at /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend/node_modules/node-sass/vendor/linux-x64-48/binding.node
+Testing binary
+Binary is fine
+LS-React-1@1.0.0 /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend
+...
+```
+
+This is the same tutorial as for the back end.
+
+```console
 mrpatrickdaykennedy@blissful-acumen-179906:~/DevOps-Deployment/patrick/backend$ npm install
 backend@1.0.0 /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/backend
 ├─┬ express@4.15.4
-│ ├─┬ accepts@1.3.4
-│ │ └── negotiator@0.6.1
-│ ├── array-flatten@1.1.1
-│ ├── content-disposition@0.5.2
-│ ├── content-type@1.0.4
-│ ├── cookie@0.3.1
-│ ├── cookie-signature@1.0.6
-│ ├─┬ debug@2.6.8
-│ │ └── ms@2.0.0
-│ ├── depd@1.1.1
-│ ├── encodeurl@1.0.1
-│ ├── escape-html@1.0.3
-│ ├── etag@1.8.1
-│ ├─┬ finalhandler@1.0.4
-│ │ └── unpipe@1.0.0
-│ ├── fresh@0.5.0
-│ ├── merge-descriptors@1.0.1
-│ ├── methods@1.1.2
-│ ├─┬ on-finished@2.3.0
-│ │ └── ee-first@1.1.1
-│ ├── parseurl@1.3.2
-│ ├── path-to-regexp@0.1.7
-│ ├─┬ proxy-addr@1.1.5
-│ │ ├── forwarded@0.1.1
-│ │ └── ipaddr.js@1.4.0
-│ ├── qs@6.5.0
-│ ├── range-parser@1.2.0
-│ ├─┬ send@0.15.4
-│ │ ├── destroy@1.0.4
-│ │ ├─┬ http-errors@1.6.2
-│ │ │ └── inherits@2.0.3
-│ │ └── mime@1.3.4
-│ ├── serve-static@1.12.4
-│ ├── setprototypeof@1.0.3
-│ ├── statuses@1.3.1
-│ ├─┬ type-is@1.6.15
-│ │ └── media-typer@0.3.0
-│ ├── utils-merge@1.0.0
-│ └── vary@1.1.1
+...
 ├─┬ request@2.81.0
-│ ├── aws-sign2@0.6.0
-│ ├── aws4@1.6.0
-│ ├── caseless@0.12.0
-│ ├─┬ combined-stream@1.0.5
-│ │ └── delayed-stream@1.0.0
-│ ├── extend@3.0.1
-│ ├── forever-age├─┬ express@4.15.4
-│ ├─┬ form-data@2.1.4
-│ │ └── asynckit@0.4.0
-│ ├─┬ har-validator@4.2.1
-│ │ ├─┬ ajv@4.11.8
-│ │ │ ├── co@4.6.0
-│ │ │ └─┬ json-stable-stringify@1.0.1
-│ │ │   └── jsonify@0.0.0
-│ │ └── har-schema@1.0.5
-│ ├─┬ hawk@3.1.3
-│ │ ├── boom@2.10.1
-│ │ ├── cryptiles@2.0.5
-│ │ ├── hoek@2.16.3
-│ │ └── sntp@1.0.9
-│ ├─┬ http-signature@1.1.1
-│ │ ├── assert-plus@0.2.0
-│ │ ├─┬ jsprim@1.4.1
-│ │ │ ├── assert-plus@1.0.0
-│ │ │ ├── extsprintf@1.3.0
-│ │ │ ├── json-schema@0.2.3
-│ │ │ └─┬ verror@1.10.0
-│ │ │   ├── assert-plus@1.0.0
-│ │ │   └── core-util-is@1.0.2
-│ │ └─┬ sshpk@1.13.1
-│ │   ├── asn1@0.2.3
-│ │   ├── assert-plus@1.0.0
-│ │   ├── bcrypt-pbkdf@1.0.1
-│ │   ├─┬ dashdash@1.14.1
-│ │   │ └── assert-plus@1.0.0
-│ │   ├── ecc-jsbn@0.1.1
-│ │   ├─┬ getpass@0.1.7
-│ │   │ └── assert-plus@1.0.0
-│ │   ├── jsbn@0.1.1
-│ │   └── tweetnacl@0.14.5
-│ ├── is-typedarray@1.0.0
-│ ├── isstream@0.1.2
-│ ├── json-stringify-safe@5.0.1
-│ ├─┬ mime-types@2.1.17
-│ │ └── mime-db@1.30.0
-│ ├── oauth-sign@0.8.2
-│ ├── performance-now@0.2.0
-│ ├── qs@6.4.0
-│ ├── safe-buffer@5.1.1
-│ ├── stringstream@0.0.5
-│ ├─┬ tough-cookie@2.3.2
-│ │ └── punycode@1.4.1
-│ ├── tunnel-agent@0.6.0
-│ └── uuid@3.1.0
+...
 └─┬ request-promise@4.2.1
   ├── bluebird@3.5.0
   ├─┬ request-promise-core@1.1.1
@@ -258,9 +189,6 @@ npm WARN backend@1.0.0 No description
 npm WARN backend@1.0.0 No repository field.
 ```
 
-
-
-This is the same tutorial as for the back end.
 
 **Ignore the stuff about the slack bot.**
 - ha whoops: https://lambdauniversity.slack.com/messages/C731DVC1K/
