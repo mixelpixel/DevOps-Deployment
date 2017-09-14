@@ -234,11 +234,22 @@ $ vi Dockerfile
 
 ```Docker
 FROM node:5.4
-COPY package.json /src/package.json
-WORKDIR /src
+COPY package.json package.json
+WORKDIR /
 RUN npm install
-COPY botkit.js /src
-CMD ["node", "/src/botkit".js"]
+COPY server.js /
+EXPOSE 8080
+CMD ["node", "/server.js"]
+```
+
+```console
+export PROJECT_ID=lambda-devops
+
+docker build -t gcr.io/${PROJECT_ID}/lambda-devops:v1 .
+
+docker run -d -p 8080:8080 gcr.io/${PROJECT_ID}/lambda-devops:v1
+
+gcloud docker -- push gcr.io/${PROJECT_ID}/lambda-devops:v1
 ```
 
 Instead, you will check out this repository to the docker container:
