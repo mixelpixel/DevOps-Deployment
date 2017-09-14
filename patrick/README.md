@@ -78,7 +78,7 @@ Topics:
 - Dedicated server hosting
 - Front end hosting
 - Database hosting
-- Cloud hosting
+- Cloud hosting & **G**oogle **C**loud **P**latform
 - Microservers
   - Different servers for different jobs
   1. Front end server
@@ -112,7 +112,7 @@ You need:
 You will:
 Follow instructions at GCP for creating a Docker container for your repository
 
-Google Cloud Platform to host a back end:
+**Google Cloud Platform** to host a back end:
 [Quick GCP setup](https://codelabs.developers.google.com/codelabs/cloud-slack-bot/index.html#0)
 
 Your back end will be an express server with two endpoints:
@@ -130,17 +130,142 @@ Then, test your docker container with the command line:
 #### From Slack chat & lecture:
 - [Simple Dev Ops](https://www.lucidchart.com/invitations/accept/4854f86f-f03b-4877-8b27-d6caeca774f0)
 - [Continous Integration](https://www.lucidchart.com/invitations/accept/bcf25fe7-0ceb-4f5c-966b-97705455d0a3)
-> ...use this one to create `~/.ssh/id_rsa` if you don't already have it @sarah (edited)
-> https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 - https://cloud.google.com/source-repositories/docs/connecting-hosted-repositories
 - https://cloud.google.com/source-repositories/docs/adding-repositories-as-remotes
 - https://cloud.google.com/source-repositories/docs/quickstart
+
+- I DO ALREADY HAVE `~/.ssh/id_rsa` √
+> ...use this one to create `~/.ssh/id_rsa` if you don't already have it
+> https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 - ...continued:
 
 Google Cloud platform to host a front end:
 [Quick GCP setup](https://codelabs.developers.google.com/codelabs/cloud-slack-bot/index.html#0)
 
-This is the same tutorial as for the back end. **Ignore the stuff about the slack bot.** Instead, you will check out this repository to the docker container.
+```console
+Welcome to Cloud Shell! Type "help" to get started.
+mrpatrickdaykennedy@blissful-acumen-179906:~$ git clone https://github.com/mixelpixel/DevOps-Deployment.git
+Cloning into 'DevOps-Deployment'...
+remote: Counting objects: 75, done.
+remote: Compressing objects: 100% (27/27), done.
+remote: Total 75 (delta 19), reused 28 (delta 11), pack-reused 36
+Unpacking objects: 100% (75/75), done.
+mrpatrickdaykennedy@blissful-acumen-179906:~$ cd DevOps-Deployment/
+mrpatrickdaykennedy@blissful-acumen-179906:~/DevOps-Deployment$ cd patrick/backend/
+mrpatrickdaykennedy@blissful-acumen-179906:~/DevOps-Deployment/patrick/backend$ npm install
+backend@1.0.0 /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/backend
+├─┬ express@4.15.4
+│ ├─┬ accepts@1.3.4
+│ │ └── negotiator@0.6.1
+│ ├── array-flatten@1.1.1
+│ ├── content-disposition@0.5.2
+│ ├── content-type@1.0.4
+│ ├── cookie@0.3.1
+│ ├── cookie-signature@1.0.6
+│ ├─┬ debug@2.6.8
+│ │ └── ms@2.0.0
+│ ├── depd@1.1.1
+│ ├── encodeurl@1.0.1
+│ ├── escape-html@1.0.3
+│ ├── etag@1.8.1
+│ ├─┬ finalhandler@1.0.4
+│ │ └── unpipe@1.0.0
+│ ├── fresh@0.5.0
+│ ├── merge-descriptors@1.0.1
+│ ├── methods@1.1.2
+│ ├─┬ on-finished@2.3.0
+│ │ └── ee-first@1.1.1
+│ ├── parseurl@1.3.2
+│ ├── path-to-regexp@0.1.7
+│ ├─┬ proxy-addr@1.1.5
+│ │ ├── forwarded@0.1.1
+│ │ └── ipaddr.js@1.4.0
+│ ├── qs@6.5.0
+│ ├── range-parser@1.2.0
+│ ├─┬ send@0.15.4
+│ │ ├── destroy@1.0.4
+│ │ ├─┬ http-errors@1.6.2
+│ │ │ └── inherits@2.0.3
+│ │ └── mime@1.3.4
+│ ├── serve-static@1.12.4
+│ ├── setprototypeof@1.0.3
+│ ├── statuses@1.3.1
+│ ├─┬ type-is@1.6.15
+│ │ └── media-typer@0.3.0
+│ ├── utils-merge@1.0.0
+│ └── vary@1.1.1
+├─┬ request@2.81.0
+│ ├── aws-sign2@0.6.0
+│ ├── aws4@1.6.0
+│ ├── caseless@0.12.0
+│ ├─┬ combined-stream@1.0.5
+│ │ └── delayed-stream@1.0.0
+│ ├── extend@3.0.1
+│ ├── forever-age├─┬ express@4.15.4
+│ ├─┬ form-data@2.1.4
+│ │ └── asynckit@0.4.0
+│ ├─┬ har-validator@4.2.1
+│ │ ├─┬ ajv@4.11.8
+│ │ │ ├── co@4.6.0
+│ │ │ └─┬ json-stable-stringify@1.0.1
+│ │ │   └── jsonify@0.0.0
+│ │ └── har-schema@1.0.5
+│ ├─┬ hawk@3.1.3
+│ │ ├── boom@2.10.1
+│ │ ├── cryptiles@2.0.5
+│ │ ├── hoek@2.16.3
+│ │ └── sntp@1.0.9
+│ ├─┬ http-signature@1.1.1
+│ │ ├── assert-plus@0.2.0
+│ │ ├─┬ jsprim@1.4.1
+│ │ │ ├── assert-plus@1.0.0
+│ │ │ ├── extsprintf@1.3.0
+│ │ │ ├── json-schema@0.2.3
+│ │ │ └─┬ verror@1.10.0
+│ │ │   ├── assert-plus@1.0.0
+│ │ │   └── core-util-is@1.0.2
+│ │ └─┬ sshpk@1.13.1
+│ │   ├── asn1@0.2.3
+│ │   ├── assert-plus@1.0.0
+│ │   ├── bcrypt-pbkdf@1.0.1
+│ │   ├─┬ dashdash@1.14.1
+│ │   │ └── assert-plus@1.0.0
+│ │   ├── ecc-jsbn@0.1.1
+│ │   ├─┬ getpass@0.1.7
+│ │   │ └── assert-plus@1.0.0
+│ │   ├── jsbn@0.1.1
+│ │   └── tweetnacl@0.14.5
+│ ├── is-typedarray@1.0.0
+│ ├── isstream@0.1.2
+│ ├── json-stringify-safe@5.0.1
+│ ├─┬ mime-types@2.1.17
+│ │ └── mime-db@1.30.0
+│ ├── oauth-sign@0.8.2
+│ ├── performance-now@0.2.0
+│ ├── qs@6.4.0
+│ ├── safe-buffer@5.1.1
+│ ├── stringstream@0.0.5
+│ ├─┬ tough-cookie@2.3.2
+│ │ └── punycode@1.4.1
+│ ├── tunnel-agent@0.6.0
+│ └── uuid@3.1.0
+└─┬ request-promise@4.2.1
+  ├── bluebird@3.5.0
+  ├─┬ request-promise-core@1.1.1
+  │ └── lodash@4.17.4
+  └── stealthy-require@1.1.1
+npm WARN backend@1.0.0 No description
+npm WARN backend@1.0.0 No repository field.
+```
+
+
+
+This is the same tutorial as for the back end.
+
+**Ignore the stuff about the slack bot.**
+- ha whoops: https://lambdauniversity.slack.com/messages/C731DVC1K/
+
+Instead, you will check out this repository to the docker container:
 
 [Set up Jenkins on Container Engine](https://cloud.google.com/solutions/jenkins-on-container-engine-tutorial#top_of_page)
 
