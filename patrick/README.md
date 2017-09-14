@@ -193,6 +193,54 @@ npm WARN backend@1.0.0 No repository field.
 **Ignore the stuff about the slack bot.**
 - ha whoops: https://lambdauniversity.slack.com/messages/C731DVC1K/
 
+```console
+$ vi botkit.js
+```
+
+```js
+var Botkit = require('botkit')
+var fs = require('fs') // NEW: Add this require (for loading from files).
+var controller = Botkit.slackbot({debug: false})
+// START: Load Slack token from file.
+if (!process.env.slack_token_path) {
+  console.log('Error: Specify slack_token_path in environment')
+  process.exit(1)
+}
+fs.readFile(process.env.slack_token_path, function (err, data) {
+  if (err) {
+    console.log('Error: Specify token in slack_token_path file')
+    process.exit(1)
+  }
+  data = String(data)
+  data = data.replace(/\s/g, '')
+  controller
+    .spawn({token: data})
+    .startRTM(function (err) {
+      if (err) {
+        throw new Error(err)
+      }
+    })
+})
+// END: Load Slack token from file.
+controller.hears(
+  ['hello', 'hi'], ['direct_message', 'direct_mention', 'mention'],
+  function (bot, message) { bot.reply(message, 'Meow. :smile_cat:') })
+
+```
+
+```console
+$ vi Dockerfile
+```
+
+```Docker
+FROM node:5.4
+COPY package.json /src/package.json
+WORKDIR /src
+RUN npm install
+COPY botkit.js /src
+CMD ["node", "/src/botkit".js"]
+```
+
 Instead, you will check out this repository to the docker container:
 
 [Set up Jenkins on Container Engine](https://cloud.google.com/solutions/jenkins-on-container-engine-tutorial#top_of_page)
