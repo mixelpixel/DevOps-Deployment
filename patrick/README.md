@@ -193,6 +193,7 @@ npm WARN backend@1.0.0 No repository field.
 **Ignore the stuff about the slack bot.**
 - ha whoops: https://lambdauniversity.slack.com/messages/C731DVC1K/
 
+# HA - IGNORE THIS BOTKIT STUFF
 ```console
 $ vi botkit.js
 ```
@@ -228,6 +229,8 @@ controller.hears(
 
 ```
 
+# DOCKERFILE
+
 ```console
 $ vi Dockerfile
 ```
@@ -251,6 +254,10 @@ docker run -d -p 8080:8080 gcr.io/${PROJECT_ID}/lambda-devops:v1
 
 gcloud docker -- push gcr.io/${PROJECT_ID}/lambda-devops:v1
 ```
+
+![docker.png](docker.png)
+![express_server.png](express_server.png)
+![Dockerfile.png](Dockerfile.png)
 
 Instead, you will check out this repository to the docker container:
 
