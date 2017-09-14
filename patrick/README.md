@@ -115,17 +115,6 @@ Follow instructions at GCP for creating a Docker container for your repository
 Google Cloud Platform to host a back end:
 [Quick GCP setup](https://codelabs.developers.google.com/codelabs/cloud-slack-bot/index.html#0)
 
-#### From Slack chat:
-- https://www.lucidchart.com/invitations/accept/4854f86f-f03b-4877-8b27-d6caeca774f0
-- https://www.lucidchart.com/invitations/accept/bcf25fe7-0ceb-4f5c-966b-97705455d0a3
-> ...use this one to create `~/.ssh/id_rsa` if you don't already have it @sarah (edited)
-> https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
-- https://cloud.google.com/source-repositories/docs/connecting-hosted-repositories
-- https://cloud.google.com/source-repositories/docs/adding-repositories-as-remotes
-- https://cloud.google.com/source-repositories/docs/quickstart
-
-...continued:
-
 Your back end will be an express server with two endpoints:
 
     /version - returns the current software version
@@ -138,10 +127,20 @@ Then, test your docker container with the command line:
 - Can you stop it (docker command)
 - Can you start it again? (docker command)
 
+#### From Slack chat & lecture:
+- [Simple Dev Ops](https://www.lucidchart.com/invitations/accept/4854f86f-f03b-4877-8b27-d6caeca774f0)
+- [Continous Integration](https://www.lucidchart.com/invitations/accept/bcf25fe7-0ceb-4f5c-966b-97705455d0a3)
+> ...use this one to create `~/.ssh/id_rsa` if you don't already have it @sarah (edited)
+> https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+- https://cloud.google.com/source-repositories/docs/connecting-hosted-repositories
+- https://cloud.google.com/source-repositories/docs/adding-repositories-as-remotes
+- https://cloud.google.com/source-repositories/docs/quickstart
+- ...continued:
+
 Google Cloud platform to host a front end:
 [Quick GCP setup](https://codelabs.developers.google.com/codelabs/cloud-slack-bot/index.html#0)
 
-This is the same tutorial as for the back end. Ignore the stuff about the slack bot. Instead, you will check out this repository to the docker container.
+This is the same tutorial as for the back end. **Ignore the stuff about the slack bot.** Instead, you will check out this repository to the docker container.
 
 [Set up Jenkins on Container Engine](https://cloud.google.com/solutions/jenkins-on-container-engine-tutorial#top_of_page)
 
