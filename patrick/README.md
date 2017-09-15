@@ -1,9 +1,9 @@
-# DevOps and Deployment 
-## Course Introduction
+# DevOps and Deployment
+## Course Introduction - OKAY √
 
 Software is great and all. But truly nothing matters except delivery. This course is intended to teach you the philosophy of Continuous Deployment. Continuous Deployment refers to automatically making any submitted code available for testing every time a code change is submitted. Many engineers today believe that this method results in more reliable code. In addition to teaching you about Continuous Deployment (or Continuous Integration), this course will also teach you to create a deployment of one of your Lambda School projects using this method.
 
-## What is DevOps?
+## What is DevOps? - OKAY √
 
 DevOps is the complicated framework that surrounds transmitting your code from your local machine to the public. The specific steps taken to perform this transmission (aka: deployment) are extremely varied. There are many dozens of web sites dedicated to helping you deploy your code to the internet and collect a small fee from you for this service. Regardless of which service or technology you use, DevOps is always loosely comprised of the following steps:
 
@@ -18,7 +18,7 @@ The above steps are sufficient to take your local software development project t
 
 Finally, the above steps only create a relatively brittle site. In particular, these steps don't help at all with the development process - that is, the process of writing and refining your application code to become reliable, feature-rich, and bug free. These steps in particular do not scale well for projects that are not toys: most development projects involve many developers, technologies being developed in parallel, and thousands or millions of expectant customers waiting for each revision. In order to safely and effectively deliver code to the world at large, more development is needed.
 
-## Mini Sprint:
+## Mini Sprint: - OKAY √
 
 The above notes about DevOps.
 
@@ -26,21 +26,32 @@ The above notes about DevOps.
 - Security - HTTPS and Digicert, self signed HTTPS
 - Scalability - Dedicated hosts versus your own hosts
 
-### Basic Hosting:
+### Basic Hosting: - OKAY √
 
 - Name servers and virtual hosts via CPanel and SSH (Godaddy, Geocities)
 - Super lightweight hosts like Small victories
 
-### Local Hosting:
+### Local Hosting: - DONE √
 
 Now, get [ngrok](https://ngrok.com/) and start using it with the free account. Choose a personal or Lambda web site project that you'd like to share with the rest of class (and the world), run it on your local machine, and share it with us using `ngrok`.
+
+Installing ngrok: https://gist.github.com/wosephjeber/aa174fb851dfe87e644e
+```
+# cd into your local bin directory
+cd /usr/local/bin
+
+# create symlink
+ln -s /Applications/ngrok ngrok
+```
+
+- Also, homebrew, macports, npm and such...
 
 ### Advanced Hosting:
 
 The rest of this document
 
 ## Continuous Deployment
-    
+
     Any sufficiently advanced Ops is indistinguishable from Dev
     - Baron Schwartz @xaprb -
 
@@ -56,7 +67,7 @@ The rest of this document
 8. Hosting servers in different physical locations in order to improve performance and fault tolerance
 9. Splitting up data in different locations to improve performance and fault tolerance
 
-# Sprint:
+# Sprint: - Whoa!
 
 Topics:
 
@@ -67,7 +78,7 @@ Topics:
 - Dedicated server hosting
 - Front end hosting
 - Database hosting
-- Cloud hosting
+- Cloud hosting & **G**oogle **C**loud **P**latform
 - Microservers
   - Different servers for different jobs
   1. Front end server
@@ -87,7 +98,7 @@ Topics:
 - Security in motion (HTTPS)
 - Security at rest (ssh, pub/priv key encryption, MFA, password danger, etc)
 
-# Assignment:
+# Assignment: - OKAY √
 The following assignment is extremely difficult. Do not lose heart if you are lost or struggling. In professional work I would allow between 1-3 weeks of 8 hour days of development to accomplish the following goals.
 
 Let's build a CI pipeline:
@@ -101,7 +112,7 @@ You need:
 You will:
 Follow instructions at GCP for creating a Docker container for your repository
 
-Google Cloud Platform to host a back end:
+**Google Cloud Platform** to host a back end:
 [Quick GCP setup](https://codelabs.developers.google.com/codelabs/cloud-slack-bot/index.html#0)
 
 Your back end will be an express server with two endpoints:
@@ -116,10 +127,139 @@ Then, test your docker container with the command line:
 - Can you stop it (docker command)
 - Can you start it again? (docker command)
 
+#### From Slack chat & lecture:
+- [Simple Dev Ops](https://www.lucidchart.com/invitations/accept/4854f86f-f03b-4877-8b27-d6caeca774f0)
+- [Continous Integration](https://www.lucidchart.com/invitations/accept/bcf25fe7-0ceb-4f5c-966b-97705455d0a3)
+- https://cloud.google.com/source-repositories/docs/connecting-hosted-repositories
+- https://cloud.google.com/source-repositories/docs/adding-repositories-as-remotes
+- https://cloud.google.com/source-repositories/docs/quickstart
+
+- I DO ALREADY HAVE `~/.ssh/id_rsa` √
+> ...use this one to create `~/.ssh/id_rsa` if you don't already have it
+> https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+- ...continued:
+
 Google Cloud platform to host a front end:
 [Quick GCP setup](https://codelabs.developers.google.com/codelabs/cloud-slack-bot/index.html#0)
 
-This is the same tutorial as for the back end. Ignore the stuff about the slack bot. Instead, you will check out this repository to the docker container.
+```console
+Welcome to Cloud Shell! Type "help" to get started.
+mrpatrickdaykennedy@blissful-acumen-179906:~$ git clone https://github.com/mixelpixel/DevOps-Deployment.git
+Cloning into 'DevOps-Deployment'...
+remote: Counting objects: 75, done.
+remote: Compressing objects: 100% (27/27), done.
+remote: Total 75 (delta 19), reused 28 (delta 11), pack-reused 36
+Unpacking objects: 100% (75/75), done.
+mrpatrickdaykennedy@blissful-acumen-179906:~$ cd DevOps-Deployment/
+mrpatrickdaykennedy@blissful-acumen-179906:~/DevOps-Deployment$ cd patrick/frontend
+mrpatrickdaykennedy@blissful-acumen-179906:~/DevOps-Deployment/patrick/frontend$ npm install
+npm WARN prefer global node-gyp@3.6.2 should be installed with -g
+> node-sass@4.5.3 install /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend/node_modules/node-sass
+> node scripts/install.js
+Downloading binary from https://github.com/sass/node-sass/releases/download/v4.5.3/linux-x64-48_binding.node
+Download complete .] - :
+Binary saved to /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend/node_modules/node-sass/vendor/linux-x64-48/binding.node
+Caching binary to /home/mrpatrickdaykennedy/.npm/node-sass/4.5.3/linux-x64-48_binding.node
+> uglifyjs-webpack-plugin@0.4.6 postinstall /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend/node_modules/uglifyjs-webpack-plugin
+> node lib/post_install.js
+> node-sass@4.5.3 postinstall /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend/node_modules/node-sass
+> node scripts/build.js
+Binary found at /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend/node_modules/node-sass/vendor/linux-x64-48/binding.node
+Testing binary
+Binary is fine
+LS-React-1@1.0.0 /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend
+...
+```
+
+This is the same tutorial as for the back end.
+
+```console
+mrpatrickdaykennedy@blissful-acumen-179906:~/DevOps-Deployment/patrick/backend$ npm install
+backend@1.0.0 /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/backend
+├─┬ express@4.15.4
+...
+├─┬ request@2.81.0
+...
+└─┬ request-promise@4.2.1
+  ├── bluebird@3.5.0
+  ├─┬ request-promise-core@1.1.1
+  │ └── lodash@4.17.4
+  └── stealthy-require@1.1.1
+npm WARN backend@1.0.0 No description
+npm WARN backend@1.0.0 No repository field.
+```
+
+
+**Ignore the stuff about the slack bot.**
+- ha whoops: https://lambdauniversity.slack.com/messages/C731DVC1K/
+
+# HA - IGNORE THIS BOTKIT STUFF
+```console
+$ vi botkit.js
+```
+
+```js
+var Botkit = require('botkit')
+var fs = require('fs') // NEW: Add this require (for loading from files).
+var controller = Botkit.slackbot({debug: false})
+// START: Load Slack token from file.
+if (!process.env.slack_token_path) {
+  console.log('Error: Specify slack_token_path in environment')
+  process.exit(1)
+}
+fs.readFile(process.env.slack_token_path, function (err, data) {
+  if (err) {
+    console.log('Error: Specify token in slack_token_path file')
+    process.exit(1)
+  }
+  data = String(data)
+  data = data.replace(/\s/g, '')
+  controller
+    .spawn({token: data})
+    .startRTM(function (err) {
+      if (err) {
+        throw new Error(err)
+      }
+    })
+})
+// END: Load Slack token from file.
+controller.hears(
+  ['hello', 'hi'], ['direct_message', 'direct_mention', 'mention'],
+  function (bot, message) { bot.reply(message, 'Meow. :smile_cat:') })
+
+```
+
+# DOCKERFILE
+
+```console
+$ vi Dockerfile
+```
+
+```Docker
+FROM node:5.4
+COPY package.json package.json
+WORKDIR /
+RUN npm install
+COPY server.js /
+EXPOSE 8080
+CMD ["node", "/server.js"]
+```
+
+```console
+export PROJECT_ID=lambda-devops
+
+docker build -t gcr.io/${PROJECT_ID}/lambda-devops:v1 .
+
+docker run -d -p 8080:8080 gcr.io/${PROJECT_ID}/lambda-devops:v1
+
+gcloud docker -- push gcr.io/${PROJECT_ID}/lambda-devops:v1
+```
+
+![docker.png](docker.png)
+![express_server.png](express_server.png)
+![Dockerfile.png](Dockerfile.png)
+
+Instead, you will check out this repository to the docker container:
 
 [Set up Jenkins on Container Engine](https://cloud.google.com/solutions/jenkins-on-container-engine-tutorial#top_of_page)
 
@@ -142,7 +282,3 @@ Your front end will be a React app that displays its own version, the back end's
     gcloud container clusters get-credentials lambda-cluster --zone us-central1-a --project lambda-XXXXXX
     kubectl proxy
     http://localhost:8001/ui
-
-
-
-
