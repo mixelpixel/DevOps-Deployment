@@ -9,6 +9,6 @@
   "dependencies": {
     "express": "*",
     "request": "*",
-    "request-promise": "*" 
+    "request-promise": "*"
   }
 }
