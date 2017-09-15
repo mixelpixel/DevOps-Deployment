@@ -29,6 +29,8 @@ The above notes about DevOps.
 ### Basic Hosting: - OKAY √
 
 - Name servers and virtual hosts via CPanel and SSH (Godaddy, Geocities)
+  - https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+  - https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
 - Super lightweight hosts like Small victories
 
 ### Local Hosting: - DONE √
