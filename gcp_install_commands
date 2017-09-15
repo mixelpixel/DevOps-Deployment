@@ -37,6 +37,6 @@ spec:
     spec:
       containers:
       - name: master
-        image: gcr.io/PROJECT_ID/slack-codelab:v1
+        image: gcr.io/PROJECT_ID/lambda-devops:v1
         ports:
           - containerPort: 8080
