@@ -249,12 +249,19 @@ CMD ["node", "/server.js"]
 
 ```console
 export PROJECT_ID=lambda-devops
+or
+export PROJECT_ID=$(gcloud config list --format 'value(core.project)')
 
 docker build -t gcr.io/${PROJECT_ID}/lambda-devops:v1 .
 
 docker run -d -p 8080:8080 gcr.io/${PROJECT_ID}/lambda-devops:v1
 
 gcloud docker -- push gcr.io/${PROJECT_ID}/lambda-devops:v1
+
+gcloud container clusters create lambda-devops-cluster \
+      --num-nodes=2 \
+      --zone=us-central1-f \
+      --machine-type n1-standard-1
 ```
 
 ![docker.png](docker.png)
