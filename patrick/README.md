@@ -126,8 +126,11 @@ Ignore everything about the slack bot, except that kittenbot.js will actually be
 
 Then, test your docker container with the command line:
 - Is it running? (curl localhost:port)
+  - `$ curl localhost:8080`
 - Can you stop it (docker command)
+  - `$ docker stop <container@#>`
 - Can you start it again? (docker command)
+  - `$ docker start <container@#>`
 
 #### From Slack chat & lecture:
 - [Simple Dev Ops](https://www.lucidchart.com/invitations/accept/4854f86f-f03b-4877-8b27-d6caeca774f0)
@@ -136,7 +139,7 @@ Then, test your docker container with the command line:
 - https://cloud.google.com/source-repositories/docs/adding-repositories-as-remotes
 - https://cloud.google.com/source-repositories/docs/quickstart
 
-- I DO ALREADY HAVE `~/.ssh/id_rsa` √
+- I DO ALREADY HAVE `~/.ssh/id_rsa` in my local computer √ But... I am not making use of it...
 > ...use this one to create `~/.ssh/id_rsa` if you don't already have it
 > https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 - ...continued:
@@ -144,40 +147,42 @@ Then, test your docker container with the command line:
 Google Cloud platform to host a front end:
 [Quick GCP setup](https://codelabs.developers.google.com/codelabs/cloud-slack-bot/index.html#0)
 
+#### HA - I didn't need to manually `npm i` the front/backend :P
+
 ```console
 Welcome to Cloud Shell! Type "help" to get started.
-mrpatrickdaykennedy@blissful-acumen-179906:~$ git clone https://github.com/mixelpixel/DevOps-Deployment.git
+kennedy@blissful-acumen-179906:~$ git clone https://github.com/mixelpixel/DevOps-Deployment.git
 Cloning into 'DevOps-Deployment'...
 remote: Counting objects: 75, done.
 remote: Compressing objects: 100% (27/27), done.
 remote: Total 75 (delta 19), reused 28 (delta 11), pack-reused 36
 Unpacking objects: 100% (75/75), done.
-mrpatrickdaykennedy@blissful-acumen-179906:~$ cd DevOps-Deployment/
-mrpatrickdaykennedy@blissful-acumen-179906:~/DevOps-Deployment$ cd patrick/frontend
-mrpatrickdaykennedy@blissful-acumen-179906:~/DevOps-Deployment/patrick/frontend$ npm install
+kennedy@blissful-acumen-179906:~$ cd DevOps-Deployment/
+kennedy@blissful-acumen-179906:~/DevOps-Deployment$ cd patrick/frontend
+kennedy@blissful-acumen-179906:~/DevOps-Deployment/patrick/frontend$ npm install
 npm WARN prefer global node-gyp@3.6.2 should be installed with -g
-> node-sass@4.5.3 install /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend/node_modules/node-sass
+> node-sass@4.5.3 install /home/kennedy/DevOps-Deployment/patrick/frontend/node_modules/node-sass
 > node scripts/install.js
 Downloading binary from https://github.com/sass/node-sass/releases/download/v4.5.3/linux-x64-48_binding.node
 Download complete .] - :
-Binary saved to /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend/node_modules/node-sass/vendor/linux-x64-48/binding.node
-Caching binary to /home/mrpatrickdaykennedy/.npm/node-sass/4.5.3/linux-x64-48_binding.node
-> uglifyjs-webpack-plugin@0.4.6 postinstall /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend/node_modules/uglifyjs-webpack-plugin
+Binary saved to /home/kennedy/DevOps-Deployment/patrick/frontend/node_modules/node-sass/vendor/linux-x64-48/binding.node
+Caching binary to /home/kennedy/.npm/node-sass/4.5.3/linux-x64-48_binding.node
+> uglifyjs-webpack-plugin@0.4.6 postinstall /home/kennedy/DevOps-Deployment/patrick/frontend/node_modules/uglifyjs-webpack-plugin
 > node lib/post_install.js
-> node-sass@4.5.3 postinstall /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend/node_modules/node-sass
+> node-sass@4.5.3 postinstall /home/kennedy/DevOps-Deployment/patrick/frontend/node_modules/node-sass
 > node scripts/build.js
-Binary found at /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend/node_modules/node-sass/vendor/linux-x64-48/binding.node
+Binary found at /home/kennedy/DevOps-Deployment/patrick/frontend/node_modules/node-sass/vendor/linux-x64-48/binding.node
 Testing binary
 Binary is fine
-LS-React-1@1.0.0 /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/frontend
+LS-React-1@1.0.0 /home/kennedy/DevOps-Deployment/patrick/frontend
 ...
 ```
 
 This is the same tutorial as for the back end.
 
 ```console
-mrpatrickdaykennedy@blissful-acumen-179906:~/DevOps-Deployment/patrick/backend$ npm install
-backend@1.0.0 /home/mrpatrickdaykennedy/DevOps-Deployment/patrick/backend
+kennedy@blissful-acumen-179906:~/DevOps-Deployment/patrick/backend$ npm install
+backend@1.0.0 /home/kennedy/DevOps-Deployment/patrick/backend
 ├─┬ express@4.15.4
 ...
 ├─┬ request@2.81.0
@@ -268,7 +273,36 @@ gcloud container clusters create lambda-devops-cluster \
 ![express_server.png](express_server.png)
 ![Dockerfile.png](Dockerfile.png)
 
+```
+Welcome to Cloud Shell! Type "help" to get started.
+mrkennedy@blissful-acumen-179906:~$ curl localhost:8080
+Hello World!
+mrkennedy@blissful-acumen-179906:~$ curl localhost:8080/version
+1.0.0
+```
+
 Instead, you will check out this repository to the docker container:
+
+FOR THE YAML FILE:
+```
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: slack-codelab
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: slack-codelab
+    spec:
+      containers:
+      - name: master
+        image: gcr.io/PROJECT_ID/slack-codelab:v1
+        port: 8080
+```
 
 [Set up Jenkins on Container Engine](https://cloud.google.com/solutions/jenkins-on-container-engine-tutorial#top_of_page)
 
