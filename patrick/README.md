@@ -269,6 +269,12 @@ gcloud container clusters create lambda-devops-cluster \
       --machine-type n1-standard-1
 ```
 
+```console
+$ docker ps   <--- find the container ID
+$ docker stop @#
+$ docker start @#
+```
+
 ![docker.png](docker.png)
 ![express_server.png](express_server.png)
 ![Dockerfile.png](Dockerfile.png)
@@ -303,6 +309,14 @@ spec:
         image: gcr.io/PROJECT_ID/slack-codelab:v1
         port: 8080
 ```
+
+`kubectl get services`
+
+`kubectl get pods`
+
+`kubectl port-forward lambda-devops-1926634773-hffqh 8080:8080`
+
+`kubectl expose deployment lambda-devops --type=LoadBalancer  --name=my-service`
 
 [Set up Jenkins on Container Engine](https://cloud.google.com/solutions/jenkins-on-container-engine-tutorial#top_of_page)
 
