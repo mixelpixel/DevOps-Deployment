@@ -9,12 +9,10 @@ const app = express();
  * Server!
   *************************************/
 
-/* eslint no-console: 0 */
 const PORT = 8080;
 const HOST = '0.0.0.0';
-// const server = app.listen(PORT, HOST, () => {
-app.listen(PORT, HOST, () => {
-  console.log(`yARRR - ye ol' sarrrvarrr ez on tha line at PORT ${PORT}`);
+const server = app.listen(PORT, HOST, () => {
+  console.log('server online');
 });
 
 /**************************************
@@ -27,4 +25,11 @@ app.get('/', (request, response) => {
 
 app.get('/version', (request, response) => {
   response.send('1.0.0\n');
+  Array.forEach(request, (key) => {
+    axios.get('myspecialserver/requestdistributor', (result) => {
+      axios.get('database', (result) => {
+        // all this stuff takes a really long time
+      });
+    });
+  });
 });
