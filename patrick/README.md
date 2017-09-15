@@ -294,7 +294,7 @@ FOR THE YAML FILE:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: slack-codelab
+  name: lambda-devops
 spec:
   replicas: 1
   strategy:
@@ -302,12 +302,13 @@ spec:
   template:
     metadata:
       labels:
-        app: slack-codelab
+        app: lambda-devops
     spec:
       containers:
       - name: master
-        image: gcr.io/PROJECT_ID/slack-codelab:v1
-        port: 8080
+        image: gcr.io/PROJECT_ID/lambda-devops:v1
+        ports:
+          - containerPort: 8080
 ```
 
 `kubectl get services`
