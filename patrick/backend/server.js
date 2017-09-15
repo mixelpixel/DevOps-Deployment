@@ -9,8 +9,9 @@ const app = express();
  * Server!
   *************************************/
 
-const port = 8081;
-const server = app.listen(port, () => {
+const PORT = 8080;
+const HOST = '0.0.0.0';
+const server = app.listen(PORT, HOST, () => {
   console.log('server online');
 });
 
@@ -19,10 +20,9 @@ const server = app.listen(port, () => {
   *************************************/
 
 app.get('/', (request, response) => {
-  response.send('Hello World!\n');  
+  response.send('Hello World!\n');
 });
 
 app.get('/version', (request, response) => {
-  response.send('1.0.0');
-}
-
+  response.send('1.0.0\n');
+});
