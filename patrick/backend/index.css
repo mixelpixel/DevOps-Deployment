@@ -1,0 +1,218 @@
+
+@keyframes tutsFade {
+  0% {
+    background: white
+  }
+  10% {
+    background: red
+  }
+  20% {
+    background: orange
+  }
+  30% {
+    background: #FFFF00
+  }
+  40% {
+    background: #00FF00
+  }
+  50% {
+    background: blue
+  }
+  60% {
+    background: indigo
+  }
+  70% {
+    background: purple
+  }
+  80% {
+    background: pink
+  }
+  90% {
+    background: red
+  }
+  100% {
+    background: #00FF66
+  }
+}
+
+@-webkit-keyframes tutsFade {
+    0% {
+    background: white
+  }
+  10% {
+    background: red
+  }
+  20% {
+    background: orange
+  }
+  30% {
+    background: #FFFF00
+  }
+  40% {
+    background: #00FF00
+  }
+  50% {
+    background: blue
+  }
+  60% {
+    background: indigo
+  }
+  70% {
+    background: purple
+  }
+  80% {
+    background: pink
+  }
+  90% {
+    background: red
+  }
+  100% {
+    background: #00FF66
+  }
+}
+
+@keyframes textChange {
+  0% {
+    color: white
+  }
+  10% {
+    color: red
+  }
+  20% {
+    color: orange
+  }
+  30% {
+    color: #FFFF00
+  }
+  40% {
+    color: #00FF00
+  }
+  50% {
+    color: blue
+  }
+  60% {
+    color: indigo
+  }
+  70% {
+    color: purple
+  }
+  80% {
+    color: pink
+  }
+  90% {
+    color: red
+  }
+  100% {
+    color: #00FF66
+  }
+}
+@-webkit-keyframes textChange {
+    0% {
+    color: white
+  }
+  10% {
+    color: red
+  }
+  20% {
+    color: orange
+  }
+  30% {
+    color: #FFFF00
+  }
+  40% {
+    color: #00FF00
+  }
+  50% {
+    color: blue
+  }
+  60% {
+    color: indigo
+  }
+  70% {
+    color: purple
+  }
+  80% {
+    color: pink
+  }
+  90% {
+    color: red
+  }
+  100% {
+    color: #00FF66
+  }
+}
+@keyframes moveBox {
+  0% {
+    margin-left: 300px
+  }
+  100% {
+    margin-right: 300px
+  }
+}
+
+@-webkit-keyframes moveBox {
+  0% {
+    margin-left: 300px
+  }
+  100% {
+    margin-right: 300px
+  }
+}
+
+@keyframes shakeup {
+	0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+	10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+	30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+	40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+	50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+	70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+	80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+	90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+	100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+@-webkit-keyframes shakeup {
+	0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+	10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+	30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+	40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+	50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+	70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+	80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+	90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+	100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+body {
+  font-family: 'Helvetica';
+  font-size: large;
+  color: #333;
+  -moz-animation: tutsFade 0.5s 0.1s infinite reverse, shakeup 0.05s 0s infinite, textChange 0.5s 0.1s infinite;
+  -webkit-animation: tutsFade 0.5s 0.1s infinite reverse, shakeup 0.05s 0s infinite, textChange 0.5s 0.1s infinite;
+
+}
+ul, li {
+  margin-bottom: 15px;
+}
+a:link {
+  -moz-animation: textChange 0.5s 0.1s infinite reverse;
+  -webkit-animation: textChange 0.5s 0.1s infinite reverse;
+}
+p {
+  margin-bottom: 15px;
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.template {
+  width: 50%;
+  border: solid 1px #333;
+  border-radius: 10px;
+  padding: 20px;
+  -moz-animation: tutsFade 0.5s 0s infinite linear, moveBox .7s 0s infinite alternate;
+  -webkit-animation: tutsFade 0.5s 0s infinite linear, moveBox .7s 0s infinite alternate;
+  

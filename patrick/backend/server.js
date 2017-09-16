@@ -20,7 +20,8 @@ const server = app.listen(PORT, HOST, () => {
   *************************************/
 
 app.get('/', (request, response) => {
-  response.send('Hello World!\n');
+  // response.send('Hello World!\n');
+  response.sendFile('/index.html', {root: __dirname });
 });
 
 app.get('/version', (request, response) => {
