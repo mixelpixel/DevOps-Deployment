@@ -19,9 +19,11 @@ const server = app.listen(PORT, HOST, () => {
  * Endpoint
   *************************************/
 
+app.use(express.static('public'));
+
 app.get('/', (request, response) => {
   // response.send('Hello World!\n');
-  response.sendFile('/index.html', {root: __dirname });
+  response.sendFile('index.html', {root: __dirname });
 });
 
 app.get('/version', (request, response) => {

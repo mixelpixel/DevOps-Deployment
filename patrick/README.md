@@ -327,6 +327,20 @@ TO GET THE PROPER NAME, CHECK THE CONTAINER REGISTRY
 > You have to push the docker container - pushing it to `gcr.io`
 > You have to modify the `image` line in your yaml file with the correct version
 > Then you do `kubectl create`
+https://lambdaschoolpro.slack.com/archives/C6959NPFC/p1505574352000003
+```console
+(updated the version # to v1.1)
+$ kubectl edit deployment/lambda-devops
+(and to the .yaml file)
+$ vim lambda-devops-deployment.yaml
+
+$ docker build -t gcr.io/${PROJECT_ID}/lambda-devops:v1.1 .
+...
+Successfully built 439f78cd6c1e
+Successfully tagged gcr.io/blissful-acumen-179906/lambda-devops:v1.1
+
+$ gcloud docker -- push gcr.io/${PROJECT_ID}/lambda-devops:v1.1
+```
 
 
 > If you have an InvalidImageName for your kubernetes pod, you can delete it so you can recreate it with `kubectl delete deployment {name}`
