@@ -319,9 +319,20 @@ spec:
 
 `kubectl expose deployment lambda-devops --type=LoadBalancer  --name=my-service`
 
+> Q: if I made a change to my server.js how much of this do we have to redo for it to show up at the IP
+> A: You have to rebuild the docker container, but you don't have to rebuild the Dockerfile `docker build` with a NEW version at the end `v1` has to become `v1.1` (edited)
+> You have to push the docker container - pushing it to `gcr.io`
+> You have to modify the `image` line in your yaml file with the correct version
+> Then you do `kubectl create`
+
+
+
 [Set up Jenkins on Container Engine](https://cloud.google.com/solutions/jenkins-on-container-engine-tutorial#top_of_page)
 
 [Jenkins on GCP, long](https://cloud.google.com/solutions/continuous-delivery-jenkins-container-engine)
+
+
+
 
 Your front end will be a React app that displays its own version, the back end's version, and the time from the back end.
 
