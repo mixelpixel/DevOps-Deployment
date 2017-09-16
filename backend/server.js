@@ -20,7 +20,7 @@ const server = app.listen(PORT, HOST, () => {
   *************************************/
 
 app.get('/', (request, response) => {
-  response.send('Hello World!\n');  
+  response.send('SO AMAZING! Out and about in the REAL!! Hello World!\n');  
 });
 
 app.get('/version', (request, response) => {
