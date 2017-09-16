@@ -326,6 +326,10 @@ spec:
 > Then you do `kubectl create`
 
 
+> If you have an InvalidImageName for your kubernetes pod, you can delete it so you can recreate it with `kubectl delete deployment {name}`
+
+> `kubectl edit deployment/lambda-devops`
+
 
 [Set up Jenkins on Container Engine](https://cloud.google.com/solutions/jenkins-on-container-engine-tutorial#top_of_page)
 
