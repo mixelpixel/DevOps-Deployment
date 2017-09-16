@@ -90,6 +90,7 @@ Topics:
   5. Integration server
 - Web servers(nginx) and simple servers(express)
 - Google, AWS, Heroku, Azure, etc
+  - https://awsdevops.io/
 - Containerization
 - Automated test
 - Automated deployment
@@ -311,6 +312,8 @@ spec:
           - containerPort: 8080
 ```
 
+TO GET THE PROPER NAME, CHECK THE CONTAINER REGISTRY
+
 `kubectl get services`
 
 `kubectl get pods`
@@ -328,6 +331,7 @@ spec:
 
 > If you have an InvalidImageName for your kubernetes pod, you can delete it so you can recreate it with `kubectl delete deployment {name}`
 
+per Sarah, to edit the stuff live:
 > `kubectl edit deployment/lambda-devops`
 
 
