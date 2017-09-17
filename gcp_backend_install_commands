@@ -7,6 +7,8 @@
 # Google Compute Engine API -> Enable
 
 export PROJECT_ID="$HOSTNAME-lambda-devops"
+# or
+export PROJECT_ID=$(gcloud config list --format 'value(core.project)')
 
 # Create project named PROJECT_ID
 
@@ -78,4 +80,3 @@ kubectl expose deployment lambda-devops --type=LoadBalancer --port=8080 --target
 # Get your IP!
 
 kubectl get services
-
