@@ -19,11 +19,15 @@ const server = app.listen(PORT, HOST, () => {
  * Endpoint
   *************************************/
 
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static('public'));
+// app.use(express.static(__dirname + '/public'));
+// const path = require('path');
 
 app.get('/', (request, response) => {
-//   response.send('Hello World!\n');
-  response.sendFile('/index.html');
+  // response.send('Hello World!\n');
+  // response.sendFile('index.html', {root: __dirname });
+  // response.sendFile(path.join(__dirname + '/index.html'));
+  response.sendFile('index.html');
 });
 
 app.get('/version', (request, response) => {
