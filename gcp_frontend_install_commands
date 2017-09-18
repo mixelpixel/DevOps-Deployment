@@ -1,5 +1,6 @@
 # Install gcloud to your local machine
 # windows, mac, linux <- instructions for each of these platforms
+https://cloud.google.com/sdk/docs/quickstart-mac-os-x
 # easier: https://console.cloud.google.com
 
 # Create GCP Account
@@ -24,7 +25,7 @@ WORKDIR /
 RUN npm install
 COPY webpack.config.js .
 COPY src/* /src
-EXPOSE 8080
+EXPOSE 8081
 CMD ["npm", "start"]
 
 #echo 'FROM node:5.4
@@ -32,7 +33,7 @@ CMD ["npm", "start"]
 #WORKDIR /src
 #RUN npm install
 #COPY src/* /src
-#EXPOSE 8080
+#EXPOSE 8081
 #CMD ["npm", "start"]' > Dockerfile
 
 # If you have trouble with Dockerfile (you probably will), see:
@@ -43,10 +44,10 @@ docker build -t gcr.io/${PROJECT_ID}/lambda-frontend-deploy:v1 .
 # If your Dockerfile is perfect, this works.
 # Otherwise it fails without saying anything at all.
 
-docker run -d -p 8080:8080 gcr.io/${PROJECT_ID}/lambda-frontend-deploy:v1
+docker run -d -p 8081:8081 gcr.io/${PROJECT_ID}/lambda-frontend-deploy:v1
 
 # Now you can test it
-curl localhost:8080
+curl localhost:8081
 # This should respond with "Hello World!"
 
 gcloud docker -- push gcr.io/${PROJECT_ID}/lambda-frontend-deploy:v1
@@ -75,7 +76,7 @@ spec:
       - name: master
         image: gcr.io/${PROJECT_ID}/lambda-frontend-deploy:v1  # !!!!!!! same
         ports:
-          - containerPort: 8080
+          - containerPort: 8081
 
 # Easily create the above file:
 #echo '{the stuff above}
@@ -92,7 +93,7 @@ kubectl get pods
 kubectl edit deployments/lambda-frontend-deploy
 # OR your gcr.io repository for this project, found [here](https://www.dropbox.com/s/5u9iyrept25s03w/Screen%20Shot%202017-09-15%20at%206.48.27%20PM.png?raw=1)
 
-kubectl expose deployment lambda-frontend-deploy --type=LoadBalancer --port=8080 --target-port=80
+kubectl expose deployment lambda-frontend-deploy --type=LoadBalancer --port=8081 --target-port=80
 
 # Get your IP!
 
@@ -102,6 +103,3 @@ kubectl get services
 #
 
 Buy a domain name!
-
-
-
