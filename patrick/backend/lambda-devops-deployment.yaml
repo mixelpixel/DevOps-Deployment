@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
       - name: master
-        image: gcr.io/PROJECT_ID/lambda-devops:v1
+        image: gcr.io/blissful-acumen-179906/lambda-devops:v1.1
         ports:
           - containerPort: 8080
