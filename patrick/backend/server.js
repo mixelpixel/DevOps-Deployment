@@ -1,4 +1,6 @@
 /* eslint no-console: 0 */
+/* eslint no-unused-vars: "off" */
+/* eslint no-undef: 0 */
 /**************************************
  * Express Setup
   *************************************/
