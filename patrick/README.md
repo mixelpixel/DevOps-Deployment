@@ -348,6 +348,15 @@ $ gcloud docker -- push gcr.io/${PROJECT_ID}/lambda-devops:v1.1
 per Sarah, to edit the stuff live:
 > `kubectl edit deployment/lambda-devops`
 
+***
+
+# Front End
+
+Note from Ely: free tier for mongoDB hosting: https://mlab.com/
+
+
+
+***
 
 [Set up Jenkins on Container Engine](https://cloud.google.com/solutions/jenkins-on-container-engine-tutorial#top_of_page)
 
