@@ -1,5 +1,6 @@
 # DevOps and Deployment
 ## Course Introduction - OKAY √
+- NOTE: re the GCP trial period signup: https://lambdaschoolpro.slack.com/archives/G5TDU61DE/p1505362357000192
 
 Software is great and all. But truly nothing matters except delivery. This course is intended to teach you the philosophy of Continuous Deployment. Continuous Deployment refers to automatically making any submitted code available for testing every time a code change is submitted. Many engineers today believe that this method results in more reliable code. In addition to teaching you about Continuous Deployment (or Continuous Integration), this course will also teach you to create a deployment of one of your Lambda School projects using this method.
 
